@@ -10,21 +10,27 @@ int wordCounter(string s);
 int main()
 {
 
-	string userInput;
-	getline(cin, userInput);
-	int words = wordCounter(userInput);
-	string* array = new string[words]; //this is a dynamic array created to store the integers...
-	for (int i = 0; i < words; i++)
-	{
-		array[i] = "NULL";
-		array[i] = numberIsolater(userInput);
-	}
+	//string userInput;
+	//getline(cin, userInput);
+	//int words = wordCounter(userInput);
+	//string* array = new string[words]; //this is a dynamic array created to store the integers...
+	//for (int i = 0; i < words; i++)
+	//{
+	//	array[i] = "NULL";
+	//	array[i] = numberIsolater(userInput);
+	//}
 
-	for (int i = 0; i < words; i++)
-	{
-		if (array[i] != "NULL")
-			cout << array[i] << endl;
-	}
+	//for (int i = 0; i < words; i++)
+	//{
+	//	if (array[i] != "NULL")
+	//		cout << array[i] << endl;
+	//}
+
+	string s = "I hate this";
+	string sS = "hate";
+	wordRemover(s, sS);
+
+	cout << s;
 
 }
 
