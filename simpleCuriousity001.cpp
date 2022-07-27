@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void wordRemover(string mainString, string subString);
+void wordRemover(string& mainString, string& subString);
 string numberIsolater(string s);
 int wordCounter(string s);
 
@@ -59,7 +59,7 @@ string numberIsolater(string s)
 	}
 }
 
-void wordRemover(string mainString, string subString)
+void wordRemover(string& mainString, string& subString)
 {
 	size_t pos = mainString.find(subString); //search for substring
 
