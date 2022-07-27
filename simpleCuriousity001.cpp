@@ -6,21 +6,22 @@ using namespace std;
 void wordRemover(string& mainString, string& subString);
 string numberIsolater(string s);
 int wordCounter(string s);
+int numberCounter(string s);
 
 int main()
 {
 
-	string userInput;
-	getline(cin, userInput);
-	int words = wordCounter(userInput);
-	string* array = new string[words]; //this is a dynamic array created to store the integers...
-	for (int i = 0; i < words; i++)
+	string userInput = "xoxo: 1, 2. 3' 4;";
+	//getline(cin, userInput);
+	int numbers = numberCounter(userInput);
+	string* array = new string[numbers]; //this is a dynamic array created to store the integers...
+	for (int i = 0; i < numbers; i++)
 	{
-		array[i] = "NULL";
 		array[i] = numberIsolater(userInput);
+		wordRemover(userInput, array[i]);
 	}
 
-	for (int i = 0; i < words; i++)
+	for (int i = 0; i < numbers; i++)
 	{
 		if (array[i] != "NULL")
 			cout << array[i] << endl;
@@ -46,10 +47,7 @@ string numberIsolater(string s)
 		stringS >> word; //as stated before, taking each word and storing it
 
 		if (stringstream(word) >> x)
-		{
-			wordRemover(s, word);
 			return word;
-		}
 	}
 }
 
@@ -63,14 +61,23 @@ void wordRemover(string& mainString, string& subString)
 
 int wordCounter(string s)
 {
-	int words = 0;
+	int w = 0;
 
 	for (int i = 0; i < s.length(); i++)
-	{
 		if (isspace(s[i]))
-			words++; //count the number of spaces
-	}
+			w++; //count the number of spaces
 
-	words++; //add one more to have an accurate count (assuming there is no extra spaces
-	return words;
+	w++; //add one more to have an accurate count (assuming there is no extra spaces
+	return w;
+}
+
+int numberCounter(string s)
+{
+	int n = 0;
+
+	for (int i = 0; i < s.length(); i++)
+		if (isdigit(s[i]))
+			n++;
+
+	return n;
 }
