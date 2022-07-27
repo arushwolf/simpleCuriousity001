@@ -10,7 +10,8 @@ int main()
 {
 
 	string userInput;
-	cin >> userInput;
+	getline(cin, userInput);
+	cout << userInput << endl;
 	numberIsolater(userInput);
 
 }
@@ -34,5 +35,7 @@ void numberIsolater(string s)
 
 		if (stringstream(word) >> x)
 			cout << x << " ";
+
+		word = "";
 	}
 }
