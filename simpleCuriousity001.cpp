@@ -11,10 +11,10 @@ int numberCounter(string s);
 int main()
 {
 
-	string userInput = "(13, 4) (10, 248)";
+	string userInput; // = "(16, 4) (100000, 248)";
+	getline(cin, userInput);
 	punctRemover(userInput);
 	cout << userInput << endl;
-	//getline(cin, userInput);
 	int numbers = numberCounter(userInput);
 	string* array = new string[numbers]; //this is a dynamic array created to store the integers...
 	for (int i = 0; i < numbers; i++)
